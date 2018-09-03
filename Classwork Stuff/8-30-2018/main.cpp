@@ -24,7 +24,7 @@ int main(void){
     // Seed our random number generator
     srand((unsigned) time(0));
 
-    // Randomly generate an array 100 elements long for sorting
+    // Randomly generate an array 1000 elements long for sorting
     int randomArr[1000], arrSize = (sizeof(randomArr) / sizeof(randomArr[0])) - 1;
     for (int i = 0; i < 1000; randomArr[i++] = (rand() % 1000) + 1);
 
