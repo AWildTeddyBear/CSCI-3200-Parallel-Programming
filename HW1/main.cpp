@@ -13,7 +13,6 @@
     =========================================
 */
 
-
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -25,11 +24,11 @@ int main(void) {
 
     // Make array with our fruits and define a printing function. Then output the unsorted array
     std::vector<std::string> fruits = {"banana", "apple", "orange", "strawberry", "pineapple", "watermelon", "grape", "raspberry"};
-    auto printFruits = [](std::string& input) { std::cout << input << " "; }
+    auto printFruits = [](std::string& input) { std::cout << input << " "; };
     std::cout << "Unsorted array: "; std::for_each(fruits.begin(), fruits.end(), printFruits); std::cout << std::endl;
 
     // Sort our array
-    sort(fruits.begin(), fruits.end());
+    std::sort(fruits.begin(), fruits.end());
 
     // Print sorted array
     std::cout << "Sorted array: "; std::for_each(fruits.begin(), fruits.end(), printFruits); std::cout << std::endl;
