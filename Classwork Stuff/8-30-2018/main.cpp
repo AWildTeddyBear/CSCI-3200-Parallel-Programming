@@ -45,8 +45,8 @@ int main(void){
     srand((unsigned) time(0));
 
     // Randomly generate an array 1000 elements long for sorting
-    int randomArr[1000], arrSize = (sizeof(randomArr) / sizeof(randomArr[0])) - 1;
-    for (int i = 0; i < 1000; randomArr[i++] = (rand() % 1000) + 1);
+    int randomArr[] = {0, 3, 41, 20, 24, 5, 2, 49, 28, 49, 23, 23, 4, 69, 43, 34}, arrSize = (sizeof(randomArr) / sizeof(randomArr[0])) - 1;
+    //for (int i = 0; i < 1000; randomArr[i++] = (rand() % 1000) + 1);
 
     // Print our inital array to use it as a visual reference
     std::cout << KBOLD << KGRN << "Inital Array: " << RST << KMAG << std::endl;
@@ -56,7 +56,9 @@ int main(void){
     // Call our mergesort function -- pass our array, and beginning and end index
     // Also measure the execution time of the function
     std::chrono::high_resolution_clock::time_point currentBefore = std::chrono::high_resolution_clock::now();
+    std::cout << "mergeSort(" << randomArr << ", " << 0 << ", " << arrSize << "); [CALL FROM MAIN]" << std::endl;
     mergeSort(randomArr, 0, arrSize);
+
     std::chrono::high_resolution_clock::time_point currentAfter = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(currentAfter - currentBefore).count();
 
@@ -69,6 +71,8 @@ int main(void){
 }
 
 void mergeSort(int arr[], int leftIndex, int rightIndex){
+    std::cout << "mergeSort(" << arr << ", " << leftIndex << ", " << rightIndex << ");" << std::endl;
+
     if (leftIndex < rightIndex){
         int middle = leftIndex + (rightIndex - leftIndex) / 2;
 
@@ -81,6 +85,8 @@ void mergeSort(int arr[], int leftIndex, int rightIndex){
 
 void merge(int arr[], int leftIndex, int middle, int rightIndex){
     int n1 = middle - leftIndex + 1, n2 = rightIndex - middle, leftArr[n1], rightArr[n2], i = 0, j = 0, k = leftIndex;
+
+    std::cout << "merge(" << arr << ", " << leftIndex << ", " << middle << ", " << rightIndex << ");" << std::endl;
 
     for (int i = 0; i < n1; leftArr[i] = arr[leftIndex + i], ++i);
     for (int i = 0; i < n2; rightArr[i] = arr[middle + 1 + i], ++i);
