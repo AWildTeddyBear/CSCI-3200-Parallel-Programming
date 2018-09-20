@@ -1,4 +1,4 @@
-// gcc -g -o primes Primes.c -lpthread -lm
+// gcc -g primes.c -lpthread -lm -Wall -O3 -o out
 // ./out n num_threads
 
 #include <stdio.h>
@@ -22,6 +22,9 @@ int main(int argc, char *argv[]) {
     void *work;
     n = atoi(argv[1]);
     nextBase = 3;
+
+    if (nThreads > MAX_THREADS) { printf("Too many threads! Exiting! Inputted threads: %d, Max allowed threads: %d\n", nThreads, MAX_THREADS); exit(1); }
+    if (n > MAX_N) { printf("N is too high! Exiting! Inputted n: %d, Max allowed n: %d\n", n, MAX_N); exit(1); }
 
     for (int i = 3; i <= n; ++i) prime[i] = i % 2 != 0;
     for (int i = 0; i < nThreads; ++i) { if (pthread_create(&id[i], NULL, worker, "Thread " + i) != 0) { perror("pthread_create() error"); exit(1); } }
