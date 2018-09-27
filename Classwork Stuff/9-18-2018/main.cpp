@@ -1,3 +1,6 @@
+// g++ main.cpp -Wall -O3 --std=c++17 -o out
+// ./out
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

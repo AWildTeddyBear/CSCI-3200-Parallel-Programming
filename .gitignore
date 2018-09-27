@@ -1,0 +1,3 @@
+## Make sure we don't upload compiled stuff again ##
+out
+*.o
