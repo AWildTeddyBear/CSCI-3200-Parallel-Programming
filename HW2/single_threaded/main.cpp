@@ -48,7 +48,7 @@ int main(void) {
 	
 	std::cout << "Path Taken:" << std::endl;
 	for (int i = 0; i <= N; i++) {
-		std::cout << "[" << i << "]: ";
+		std::cout << "Vertex[" << final_path[i] << "]: ";
 		switch (final_path[i]) {
 			case 0: { std::cout << "AUM"; break; }
 			case 1: { std::cout << "Capital Farmers Market"; break; }
@@ -64,7 +64,6 @@ int main(void) {
 		}
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
 
 	return 0;
 }
