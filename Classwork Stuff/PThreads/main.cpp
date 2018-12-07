@@ -27,7 +27,7 @@ int main(void) {
     std::uniform_int_distribution<unsigned int> di(low_bound,up_bound);
 
     std::vector<unsigned int> data(SIZE);
-    std::generate(data.begin(), data.end(), [&dre, &di]{ return di(dre);});
+    std::generate(data.begin(), data.end(), [&dre, &di]{ return di(dre); });
 
     const auto startSingleThread = std::clock();
 
